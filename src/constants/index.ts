@@ -231,6 +231,21 @@ export const PROJECTS = [
     cta_text: "Coming Soon",
     in_progress: true,
   },
+  {
+    name: "CoolCare",
+    type: "DEMO PROJECT",
+    description:
+      "A modern HVAC website for AC sales, professional AC services, spare parts, and customer bookings. The project focuses on a premium, trustworthy, conversion-focused user experience with responsive design.",
+    tags: [
+      { name: "react", color: "blue-text-gradient" },
+      { name: "tailwind", color: "green-text-gradient" },
+      { name: "responsive", color: "pink-text-gradient" },
+    ],
+    link: "https://coolcaredemo.netlify.app/",
+    cta_text: "View Live ↗",
+    in_progress: false,
+    alt: "CoolCare HVAC website demo",
+  },
 ] as const;
 
 export const SOCIALS = [

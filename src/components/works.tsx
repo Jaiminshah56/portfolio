@@ -11,6 +11,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 type ProjectCardProps = (typeof PROJECTS)[number] & {
   index: number;
   image?: string;
+  alt?: string;
 };
 
 // Project Card
@@ -24,6 +25,7 @@ const ProjectCard = ({
   link,
   cta_text,
   in_progress,
+  alt,
 }: ProjectCardProps) => (
   <motion.div variants={fadeIn("up", "spring", index * 0.15, 0.75)} className="w-full h-full">
     <Tilt
@@ -38,7 +40,7 @@ const ProjectCard = ({
         {/* Work image */}
         <img
           src={image}
-          alt={name}
+          alt={alt || name}
           loading="lazy"
           className="w-full h-full object-cover rounded-2xl"
         />
