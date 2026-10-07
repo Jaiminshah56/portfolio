@@ -1,16 +1,29 @@
-import { Decal, Float, useTexture } from "@react-three/drei";
+import {
+  Decal,
+  Float,
+  OrbitControls,
+  Preload,
+  useTexture,
+} from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
+import CanvasLoader from "../loader";
 
 type BallProps = {
   imgUrl: string;
 };
 
-// Ball Mesh
+// Ball
 const Ball = ({ imgUrl }: BallProps) => {
   // use texture from drei
   const [decal] = useTexture([imgUrl]);
 
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
+      {/* Lights */}
+      <ambientLight intensity={0.25} />
+      <directionalLight position={[0, 0, 0.05]} />
+      {/* Mesh */}
       <mesh castShadow receiveShadow scale={2.75}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
@@ -29,4 +42,26 @@ const Ball = ({ imgUrl }: BallProps) => {
   );
 };
 
-export default Ball;
+type BallCanvasProps = {
+  icon: string;
+};
+
+// Ball Canvas (Original Desktop Implementation)
+const BallCanvas = ({ icon }: BallCanvasProps) => {
+  return (
+    <Canvas
+      frameloop="demand"
+      dpr={[1, 2]}
+      gl={{ preserveDrawingBuffer: true }}
+    >
+      <Suspense fallback={<CanvasLoader />}>
+        <OrbitControls enableZoom={false} />
+        <Ball imgUrl={icon} />
+      </Suspense>
+
+      <Preload all />
+    </Canvas>
+  );
+};
+
+export default BallCanvas;
