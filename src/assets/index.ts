@@ -32,12 +32,10 @@ import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 
-import project1 from "./projects/project1.png";
-import project2 from "./projects/project2.png";
-import project3 from "./projects/project3.png";
-import project4 from "./projects/project4.png";
-import project5 from "./projects/project5.png";
-import project6 from "./projects/project6.png";
+import hotel from "./projects/hotel.jpg";
+import kairo from "./projects/kairo.jpg";
+import lerasa from "./projects/lerasa.jpg";
+import zayvano from "./projects/zayvano.jpg";
 
 import user1 from "./testimonials/user1.jpg";
 import user2 from "./testimonials/user2.jpg";
@@ -77,12 +75,10 @@ export {
   shopify,
   starbucks,
   tesla,
-  project1,
-  project2,
-  project3,
-  project4,
-  project5,
-  project6,
+  hotel,
+  kairo,
+  lerasa,
+  zayvano,
   user1,
   user2,
   user3,

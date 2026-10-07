@@ -17,11 +17,13 @@ type ProjectCardProps = (typeof PROJECTS)[number] & {
 const ProjectCard = ({
   index,
   name,
+  type,
   description,
   tags,
   image,
-  source_code_link,
-  live_site_link,
+  link,
+  cta_text,
+  in_progress,
 }: ProjectCardProps) => (
   <motion.div variants={fadeIn("up", "spring", index * 0.15, 0.75)} className="w-full h-full">
     <Tilt
@@ -40,6 +42,13 @@ const ProjectCard = ({
           loading="lazy"
           className="w-full h-full object-cover rounded-2xl"
         />
+        
+        {/* Badge */}
+        <div className="absolute top-3 right-3 flex justify-end">
+          <div className="bg-tertiary/90 backdrop-blur-sm px-3 py-1 rounded-full border border-secondary/20">
+            <p className="text-white text-[10px] font-bold tracking-wider">{type}</p>
+          </div>
+        </div>
       </div>
 
       {/* Work Info */}
@@ -58,15 +67,20 @@ const ProjectCard = ({
       </div>
 
       {/* Links */}
-      <div className="mt-auto pt-5 flex gap-4">
-        {live_site_link && (
-          <a href={live_site_link} target="_blank" rel="noreferrer noopener" className="text-[#3b82f6] font-medium text-sm hover:text-white transition-colors" aria-label={`View live demo of ${name}`}>
-            Live Demo ↗
-          </a>
-        )}
-        {source_code_link && (
-          <a href={source_code_link} target="_blank" rel="noreferrer noopener" className="text-[#3b82f6] font-medium text-sm hover:text-white transition-colors" aria-label={`View source code of ${name}`}>
-            Source Code ↗
+      <div className="mt-auto pt-5 flex gap-4 items-center">
+        {in_progress || !link ? (
+          <span className="text-secondary font-medium text-sm border border-secondary/20 bg-tertiary/50 px-4 py-2 rounded-lg cursor-not-allowed">
+            {cta_text}
+          </span>
+        ) : (
+          <a
+            href={link}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="text-white font-medium text-sm bg-[#3b82f6]/10 hover:bg-[#3b82f6]/20 border border-[#3b82f6]/30 px-4 py-2 rounded-lg transition-all duration-300"
+            aria-label={`${cta_text} for ${name}`}
+          >
+            {cta_text}
           </a>
         )}
       </div>

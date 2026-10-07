@@ -25,12 +25,10 @@ import {
   tesla,
   shopify,
   threejs,
-  project1,
-  project2,
-  project3,
-  project4,
-  project5,
-  project6,
+  hotel,
+  kairo,
+  lerasa,
+  zayvano,
   user1,
   user2,
   user3,
@@ -169,136 +167,69 @@ export const TESTIMONIALS: ReadonlyArray<{
 // Projects
 export const PROJECTS = [
   {
-    name: "Disney+ Clone",
+    name: "LE RASA",
+    type: "CLIENT PROJECT",
     description:
-      "Disney+ is one of the biggest streaming platforms used by millions of people world-wide and allows us to stream high quality content in 4k and various other formats",
+      "Client project for Le Rasa, a London-based UK bakery website focused on showcasing and selling eggless desserts and bakery products through a modern online experience.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "firebase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+      { name: "nextjs", color: "blue-text-gradient" },
+      { name: "react", color: "green-text-gradient" },
+      { name: "typescript", color: "pink-text-gradient" },
+      { name: "supabase", color: "orange-text-gradient" },
+      { name: "ecommerce", color: "blue-text-gradient" },
     ],
-    image: project1,
-    source_code_link: "",
-    live_site_link: "",
+    image: lerasa,
+    link: "https://www.lerasa.co.uk/",
+    cta_text: "View Live ↗",
+    in_progress: false,
   },
   {
-    name: "Golds Gym",
+    name: "HOTEL SHIDDHARTH",
+    type: "DEMO PROJECT",
     description:
-      "Web application that enables users to search for fitness exercises, effective personalized positions, and recommends new exercises based on their personal preferences.",
+      "A modern luxury hotel website concept featuring rooms, booking flow, hospitality services, special offers and a premium guest experience.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "rapidapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwindcss",
-        color: "pink-text-gradient",
-      },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "javascript", color: "green-text-gradient" },
+      { name: "css", color: "pink-text-gradient" },
+      { name: "responsive", color: "orange-text-gradient" },
     ],
-    image: project2,
-    source_code_link: "",
-    live_site_link: "",
+    image: hotel,
+    link: "https://hotel-shiddharth.netlify.app/",
+    cta_text: "View Demo ↗",
+    in_progress: false,
   },
   {
-    name: "Shoppy",
+    name: "ZAYVANO",
+    type: "IN PROGRESS",
     description:
-      "The most personalised admin dashboard web application that allows enables users to choose customized themes and dark mode with different pages and variety of charts.",
+      "An AI-powered Shopify page builder designed to help merchants create and customize modern storefront pages using AI.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "syncfusion",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
+      { name: "nextjs", color: "blue-text-gradient" },
+      { name: "typescript", color: "green-text-gradient" },
+      { name: "shopify", color: "pink-text-gradient" },
+      { name: "ai", color: "orange-text-gradient" },
     ],
-    image: project3,
-    source_code_link: "",
-    live_site_link: "",
+    image: zayvano,
+    link: "",
+    cta_text: "Coming Soon",
+    in_progress: true,
   },
   {
-    name: "TikTok Clone",
+    name: "KAIRO AI",
+    type: "IN PROGRESS",
     description:
-      "A Next JS Web Application that enables users to upload videos of any length and size, create accounts and connect with other people just like any other social media.",
+      "An AI-powered Shopify product focused on helping ecommerce businesses build smarter, more efficient online experiences.",
     tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "nodejs",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwindcss",
-        color: "pink-text-gradient",
-      },
+      { name: "ai", color: "blue-text-gradient" },
+      { name: "shopify", color: "green-text-gradient" },
+      { name: "nextjs", color: "pink-text-gradient" },
+      { name: "typescript", color: "orange-text-gradient" },
     ],
-    image: project4,
-    source_code_link: "",
-    live_site_link: "",
-  },
-  {
-    name: "Cryptoverse",
-    description:
-      "Best Cryptocurrency web application that allows users to view price, market cap and daily change in realtime for almost every cryptocurrency in the world.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "rapidapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: project5,
-    source_code_link: "",
-    live_site_link: "",
-  },
-  {
-    name: "Travel Advisor",
-    description:
-      "Web application that enables you to view your nearby restaurants, hotels and attractions which can be sorted by ratings, price and much more.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "rapidapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "material-ui",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: project6,
-    source_code_link: "",
-    live_site_link: "",
+    image: kairo,
+    link: "",
+    cta_text: "Coming Soon",
+    in_progress: true,
   },
 ] as const;
 
