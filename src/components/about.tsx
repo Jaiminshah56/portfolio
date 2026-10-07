@@ -24,7 +24,7 @@ const ServiceCard = ({ index, title, icon }: ServiceCardProps) => {
       className="w-full h-full"
     >
       <motion.div
-        variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
+        variants={fadeIn("right", "spring", 0.15 * index, 0.75)}
         className="w-full h-full green-pink-gradient p-[1px] rounded-[20px] shadow-card hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300"
       >
         <div className="bg-tertiary/80 backdrop-blur-md rounded-[20px] py-5 px-12 min-h-[280px] h-full flex justify-evenly items-center flex-col">

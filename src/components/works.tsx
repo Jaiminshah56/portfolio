@@ -23,7 +23,7 @@ const ProjectCard = ({
   source_code_link,
   live_site_link,
 }: ProjectCardProps) => (
-  <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)} className="w-full h-full">
+  <motion.div variants={fadeIn("up", "spring", index * 0.15, 0.75)} className="w-full h-full">
     <Tilt
       options={{
         max: 45,
