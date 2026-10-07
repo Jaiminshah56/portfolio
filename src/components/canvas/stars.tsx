@@ -1,11 +1,11 @@
 import { Points, PointMaterial, Preload } from "@react-three/drei";
-import { Canvas, type PointsProps, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import * as random from "maath/random";
 import { useRef, Suspense, useState } from "react";
 import type { Points as PointsType } from "three";
 
 // Stars
-const Stars = (props: PointsProps) => {
+const Stars = (props: React.ComponentProps<typeof Points>) => {
   const ref = useRef<PointsType | null>(null);
   // For each star
   const [sphere] = useState(() =>
@@ -35,7 +35,7 @@ const Stars = (props: PointsProps) => {
           transparent
           color="#60a5fa"
           size={0.002}
-          sizeAttentuation
+          sizeAttenuation
           depthWrite={false}
         />
       </Points>

@@ -148,10 +148,23 @@ export const TECHNOLOGIES = [
 ] as const;
 
 // Experiences
-export const EXPERIENCES = [] as const;
+export const EXPERIENCES: ReadonlyArray<{
+  title: string;
+  company_name: string;
+  icon: string;
+  iconBg: string;
+  date: string;
+  points: string[];
+}> = [];
 
 // Testimonials
-export const TESTIMONIALS = [] as const;
+export const TESTIMONIALS: ReadonlyArray<{
+  testimonial: string;
+  name: string;
+  designation: string;
+  company: string;
+  image: string;
+}> = [];
 
 // Projects
 export const PROJECTS = [
