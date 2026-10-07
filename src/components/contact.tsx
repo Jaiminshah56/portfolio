@@ -1,16 +1,19 @@
 import emailjs from "@emailjs/browser";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useState, useRef, type FormEvent, type ChangeEvent } from "react";
 import { toast } from "sonner";
 
-import { EarthCanvas } from "./canvas";
+import { lazy, Suspense } from "react";
 import { SectionWrapper } from "../hoc";
+const EarthCanvas = lazy(() => import("./canvas/earth"));
 import { styles } from "../styles";
 import { slideIn } from "../utils/motion";
 
 // Contact
 export const Contact = () => {
   const formRef = useRef<HTMLFormElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { margin: "400px" });
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -223,10 +226,15 @@ export const Contact = () => {
 
         {/* Earth Model */}
         <motion.div
+          ref={containerRef}
           variants={slideIn("right", "tween", 0.2, 1)}
           className="flex-1 xl:h-auto md:h-[550px] h-[350px] w-full"
         >
-          <EarthCanvas />
+          {isInView && (
+            <Suspense fallback={null}>
+              <EarthCanvas />
+            </Suspense>
+          )}
         </motion.div>
       </div>
     </SectionWrapper>

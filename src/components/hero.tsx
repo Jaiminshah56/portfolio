@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 
-import { ComputersCanvas } from "./canvas";
+import { lazy, Suspense } from "react";
 import { styles } from "../styles";
 import { cn } from "../utils/lib";
+
+const ComputersCanvas = lazy(() => import("./canvas/computers"));
 
 // Hero
 export const Hero = () => {
@@ -51,7 +53,9 @@ export const Hero = () => {
 
         {/* Right Side: Computer Model */}
         <div className="w-full lg:w-[40%] h-[50vh] lg:h-[80vh] pointer-events-auto z-0 relative mt-10 lg:mt-0">
-          <ComputersCanvas />
+          <Suspense fallback={null}>
+            <ComputersCanvas />
+          </Suspense>
         </div>
       </div>
 

@@ -6,9 +6,11 @@ import {
   Navbar,
   Tech,
   Works,
-  StarsCanvas,
 } from "./components";
+import { lazy, Suspense } from "react";
 import Footer from "./components/footer";
+
+const StarsCanvas = lazy(() => import("./components/canvas/stars"));
 
 // App
 const App = () => {
@@ -28,7 +30,9 @@ const App = () => {
         {/* Contact */}
         <div className="relative z-0">
           <Contact />
-          <StarsCanvas />
+          <Suspense fallback={null}>
+            <StarsCanvas />
+          </Suspense>
         </div>
         <Footer />
       </div>

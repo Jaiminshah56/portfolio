@@ -2,6 +2,7 @@ import { Points, PointMaterial, Preload } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as random from "maath/random";
 import { useRef, Suspense, useState, useEffect } from "react";
+import { useInView } from "framer-motion";
 import type { Points as PointsType } from "three";
 
 // Stars
@@ -47,6 +48,9 @@ const Stars = (props: React.ComponentProps<typeof Points> & { isMobile: boolean 
 const StarsCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { margin: "400px" });
+
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
@@ -55,9 +59,10 @@ const StarsCanvas = () => {
   }, []);
 
   return (
-    <div className="w-full h-auto absolute inset-0 z-[-1]">
+    <div ref={ref} className="w-full h-auto absolute inset-0 z-[-1]">
       {/* Canvas */}
-      <Canvas camera={{ position: [0, 0, 1] }} dpr={isMobile ? [1, 1] : [1, 1.5]} gl={{ powerPreference: "high-performance" }}>
+      {isInView && (
+        <Canvas camera={{ position: [0, 0, 1] }} dpr={isMobile ? [1, 1] : [1, 1.5]} gl={{ powerPreference: "high-performance" }}>
         {/* Show stars if not fallback */}
         <Suspense fallback={null}>
           <Stars isMobile={isMobile} />
@@ -66,6 +71,7 @@ const StarsCanvas = () => {
         {/* preload all */}
         <Preload all />
       </Canvas>
+      )}
     </div>
   );
 };
