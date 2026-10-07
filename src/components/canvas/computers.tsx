@@ -64,8 +64,9 @@ const ComputersCanvas = () => {
     <Canvas
       frameloop="demand"
       shadows
+      dpr={isMobile ? [1, 1] : [1, 2]}
       camera={{ position: [20, 3, 5], fov: 35 }}
-      gl={{ preserveDrawingBuffer: true, alpha: true }}
+      gl={{ preserveDrawingBuffer: true, alpha: true, powerPreference: "high-performance" }}
     >
       {/* Canvas Loader show on fallback */}
       <Suspense fallback={<CanvasLoader />}>

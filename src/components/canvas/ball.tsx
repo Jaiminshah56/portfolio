@@ -6,7 +6,8 @@ import {
   useTexture,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { useInView } from "framer-motion";
 
 import CanvasLoader from "../loader";
 
@@ -49,17 +50,37 @@ type BallCanvasProps = {
 
 // Ball Canvas
 const BallCanvas = ({ icon }: BallCanvasProps) => {
-  return (
-    <Canvas frameloop="demand" gl={{ preserveDrawingBuffer: true }}>
-      {/* Show canvas loader on fallback */}
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
-        <Ball imgUrl={icon} />
-      </Suspense>
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { margin: "200px" });
+  const [isMobile, setIsMobile] = useState(false);
 
-      {/* Preload all */}
-      <Preload all />
-    </Canvas>
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  return (
+    <div ref={ref} className="w-full h-full">
+      {isInView ? (
+        <Canvas 
+          frameloop="demand" 
+          dpr={isMobile ? [1, 1] : [1, 2]} 
+          gl={{ preserveDrawingBuffer: true, powerPreference: "high-performance" }}
+        >
+          <Suspense fallback={<CanvasLoader />}>
+            <OrbitControls enableZoom={false} />
+            <Ball imgUrl={icon} />
+          </Suspense>
+          <Preload all />
+        </Canvas>
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-tertiary rounded-full opacity-50 shadow-md">
+           <img src={icon} alt="tech" className="w-1/2 h-1/2 object-contain" />
+        </div>
+      )}
+    </div>
   );
 };
 

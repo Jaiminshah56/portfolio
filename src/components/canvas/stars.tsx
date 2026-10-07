@@ -1,15 +1,15 @@
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as random from "maath/random";
-import { useRef, Suspense, useState } from "react";
+import { useRef, Suspense, useState, useEffect } from "react";
 import type { Points as PointsType } from "three";
 
 // Stars
-const Stars = (props: React.ComponentProps<typeof Points>) => {
+const Stars = (props: React.ComponentProps<typeof Points> & { isMobile: boolean }) => {
   const ref = useRef<PointsType | null>(null);
-  // For each star
+  // Reduce particles on mobile for performance
   const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(6000), { radius: 1.2 }),
+    random.inSphere(new Float32Array(props.isMobile ? 1500 : 5000), { radius: 1.2 }),
   );
 
   // Rotate multiple stars
@@ -45,13 +45,22 @@ const Stars = (props: React.ComponentProps<typeof Points>) => {
 
 // Stars Canvas
 const StarsCanvas = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <div className="w-full h-auto absolute inset-0 z-[-1]">
       {/* Canvas */}
-      <Canvas camera={{ position: [0, 0, 1] }}>
+      <Canvas camera={{ position: [0, 0, 1] }} dpr={isMobile ? [1, 1] : [1, 1.5]} gl={{ powerPreference: "high-performance" }}>
         {/* Show stars if not fallback */}
         <Suspense fallback={null}>
-          <Stars />
+          <Stars isMobile={isMobile} />
         </Suspense>
 
         {/* preload all */}

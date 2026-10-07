@@ -28,7 +28,7 @@ const ServiceCard = ({ index, title, icon }: ServiceCardProps) => {
         className="w-full h-full green-pink-gradient p-[1px] rounded-[20px] shadow-card hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300"
       >
         <div className="bg-tertiary/80 backdrop-blur-md rounded-[20px] py-5 px-12 min-h-[280px] h-full flex justify-evenly items-center flex-col">
-          <img src={icon} alt={title} className="w-16 h-16 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+          <img src={icon} alt={title} loading="lazy" className="w-16 h-16 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
           <h3 className="text-white text-[20px] font-bold text-center">
             {title}
           </h3>
