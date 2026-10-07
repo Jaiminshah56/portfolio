@@ -32,9 +32,9 @@ import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 
-import hotel from "./projects/hotel.jpg";
+import hotel from "./projects/hotel_real.png";
 import kairo from "./projects/kairo.jpg";
-import lerasa from "./projects/lerasa.jpg";
+import lerasa from "./projects/lerasa_real.jpg";
 import zayvano from "./projects/zayvano.jpg";
 
 import user1 from "./testimonials/user1.jpg";
