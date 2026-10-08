@@ -1,6 +1,7 @@
 import * as React from "react";
 import ReactDOM from "react-dom/client";
 import { Toaster } from "sonner";
+import { HelmetProvider } from "react-helmet-async";
 
 import App from "./app";
 
@@ -11,14 +12,16 @@ const rootEl = document.getElementById("root");
 // Render react app
 ReactDOM.createRoot(rootEl!).render(
   <React.StrictMode>
-    <Toaster
-      theme="dark"
-      richColors
-      closeButton
-      toastOptions={{
-        style: { background: "#050816", opacity: 0.95 },
-      }}
-    />
-    <App />
+    <HelmetProvider>
+      <Toaster
+        theme="dark"
+        richColors
+        closeButton
+        toastOptions={{
+          style: { background: "#050816", opacity: 0.95 },
+        }}
+      />
+      <App />
+    </HelmetProvider>
   </React.StrictMode>,
 );

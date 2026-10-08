@@ -241,6 +241,7 @@ export const PROJECTS = [
       { name: "tailwind", color: "green-text-gradient" },
       { name: "responsive", color: "pink-text-gradient" },
     ],
+    image: web,
     link: "https://coolcaredemo.netlify.app/",
     cta_text: "View Live ↗",
     in_progress: false,

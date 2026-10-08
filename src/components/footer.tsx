@@ -23,14 +23,20 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Nav Links */}
-        <ul className="list-none flex flex-wrap justify-center gap-6 md:gap-10">
-          {["Services", "Work", "About", "Contact"].map((link) => (
-            <li key={link} className="text-secondary hover:text-white text-sm font-medium cursor-pointer transition">
-              <a href={`#${link.toLowerCase()}`}>{link}</a>
-            </li>
-          ))}
-        </ul>
+        {/* SEO Internal Links */}
+        <div className="flex flex-col gap-2">
+          <ul className="list-none flex flex-wrap justify-center md:justify-start gap-4 md:gap-6">
+            <li><Link to="/about" className="text-secondary hover:text-white text-sm font-medium transition">About Jaimin Shah</Link></li>
+            <li><Link to="/services" className="text-secondary hover:text-white text-sm font-medium transition">Services</Link></li>
+            <li><Link to="/projects" className="text-secondary hover:text-white text-sm font-medium transition">Projects</Link></li>
+            <li><a href="/#contact" className="text-secondary hover:text-white text-sm font-medium transition">Contact</a></li>
+          </ul>
+          <ul className="list-none flex flex-wrap justify-center md:justify-start gap-4 md:gap-6 mt-2">
+            <li><Link to="/ai-development" className="text-secondary hover:text-white text-sm font-medium transition">AI Development</Link></li>
+            <li><Link to="/shopify-development" className="text-secondary hover:text-white text-sm font-medium transition">Shopify Development</Link></li>
+            <li><Link to="/seo-geo" className="text-secondary hover:text-white text-sm font-medium transition">SEO & GEO Optimization</Link></li>
+          </ul>
+        </div>
 
         {/* Social Links */}
         <ul className="list-none flex flex-row gap-6">

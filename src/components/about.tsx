@@ -29,9 +29,9 @@ const ServiceCard = ({ index, title, icon }: ServiceCardProps) => {
       >
         <div className="bg-tertiary/80 backdrop-blur-md rounded-[20px] py-5 px-12 min-h-[280px] h-full flex justify-evenly items-center flex-col">
           <img src={icon} alt={title} loading="lazy" className="w-16 h-16 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
-          <h3 className="text-white text-[20px] font-bold text-center">
+          <h4 className="text-white text-[20px] font-bold text-center">
             {title}
-          </h3>
+          </h4>
         </div>
       </motion.div>
     </Tilt>
@@ -46,7 +46,7 @@ export const About = () => {
         {/* Title */}
         <motion.div variants={textVariant()}>
           <p className={styles.sectionSubText}>Introduction</p>
-          <h2 className={styles.sectionHeadText}>Overview.</h2>
+          <h2 className={styles.sectionHeadText}>About Jaimin Shah.</h2>
         </motion.div>
 
         {/* Body */}
@@ -59,8 +59,12 @@ export const About = () => {
           I combine development, design and emerging AI technologies to create experiences that are fast, useful and visually memorable. Let's work together to bring your ideas to life!
         </motion.p>
 
+        <motion.div variants={textVariant()} className="mt-20">
+          <h3 className={styles.sectionHeadText + " text-[30px]"}>My Services.</h3>
+        </motion.div>
+
         {/* Service Card */}
-        <div id="services" className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 pt-10">
+        <div id="services" className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {SERVICES.map((service, i) => (
             <ServiceCard key={service.title} index={i} {...service} />
           ))}

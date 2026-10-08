@@ -133,7 +133,7 @@ export const Contact = () => {
         >
           {/* Title */}
           <p className={styles.sectionSubText}>Let's build something.</p>
-          <h3 className={styles.sectionHeadText}>Contact.</h3>
+          <h2 className={styles.sectionHeadText}>Contact.</h2>
           <p className="text-secondary mt-2 mb-8">
             Have a website, AI product, Shopify project or business idea in mind? Let's turn it into something real.
           </p>

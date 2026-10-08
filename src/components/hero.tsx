@@ -27,10 +27,13 @@ export const Hero = () => {
           {/* About Me */}
           <div className="w-full">
             <h1 className={cn(styles.heroHeadText, "text-white")}>
-              Hi, I'm <span className="text-[#3b82f6] whitespace-nowrap">Jaimin Shah</span>
+              Hi, I'm <span className="text-[#3b82f6] whitespace-nowrap">Jaimin Shah</span><br/>
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white-100 mt-2 block font-medium">
+                Web, AI & Shopify Developer
+              </span>
             </h1>
             <p className={cn(styles.heroSubText, "mt-4 text-white-100 leading-relaxed max-w-lg")}>
-              I engineer high-performance websites and AI-powered applications that help businesses scale.
+              I engineer high-performance websites, AI-powered applications, and Shopify solutions with a focus on seamless UI/UX and technical SEO.
             </p>
             
             {/* CTAs */}
